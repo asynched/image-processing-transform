@@ -2,9 +2,12 @@ package com.unip.pdi.images.colors;
 
 import java.awt.image.BufferedImage;
 
-import com.unip.pdi.images.ImageTransform;
+import com.unip.pdi.images.ITransform;
 
-public class GreenFilter implements ImageTransform {
+/**
+ * Transform that applies a green filter to the image.
+ */
+public class GreenFilter implements ITransform {
   @Override()
   public BufferedImage transform(BufferedImage image) {
     var width = image.getWidth();
@@ -15,9 +18,9 @@ public class GreenFilter implements ImageTransform {
       for (int j = 0; j < height; j++) {
         var pixel = image.getRGB(i, j);
 
-        int red = (pixel >> 16) & 0xff;
+        int red = 0;
         int green = (pixel >> 8) & 0xff;
-        int blue = (pixel) & 0xff;
+        int blue = 0;
 
         int newPixel = (red << 16) | (green << 8) | blue;
 

@@ -2,9 +2,12 @@ package com.unip.pdi.images.colors;
 
 import java.awt.image.BufferedImage;
 
-import com.unip.pdi.images.ImageTransform;
+import com.unip.pdi.images.ITransform;
 
-public class RedFilter implements ImageTransform {
+/**
+ * Transform that applies a red filter to the image.
+ */
+public class RedFilter implements ITransform {
   @Override()
   public BufferedImage transform(BufferedImage image) {
     var width = image.getWidth();
@@ -16,8 +19,8 @@ public class RedFilter implements ImageTransform {
         var pixel = image.getRGB(i, j);
 
         int red = (pixel >> 16) & 0xff;
-        int green = (pixel >> 8) & 0xff;
-        int blue = (pixel) & 0xff;
+        int green = 0;
+        int blue = 0;
 
         int newPixel = (red << 16) | (green << 8) | blue;
 

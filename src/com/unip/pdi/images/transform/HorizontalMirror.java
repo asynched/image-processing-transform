@@ -2,9 +2,12 @@ package com.unip.pdi.images.transform;
 
 import java.awt.image.BufferedImage;
 
-import com.unip.pdi.images.ImageTransform;
+import com.unip.pdi.images.ITransform;
 
-public class HorizontalMirror implements ImageTransform {
+/**
+ * Transform that flips the image horizontally.
+ */
+public class HorizontalMirror implements ITransform {
   @Override()
   public BufferedImage transform(BufferedImage image) {
     var width = image.getWidth();
