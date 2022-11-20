@@ -1,16 +1,16 @@
 package com.unip.pdi;
 
-import com.unip.pdi.cli.CommandLine;
+import com.unip.pdi.cli.CommandLineApp;
 
 public class App {
   /**
    * Executes the application
    * 
-   * @param args Arguments for the application (discarded)
+   * @param args Arguments for the application.
    */
   public static void main(String[] args) {
-    var commandLine = CommandLine.fromDefaults();
-    commandLine.run();
-    commandLine.destroy();
+    CommandLineApp
+        .fromDefaults()
+        .run(args);
   }
 }

@@ -23,7 +23,7 @@ public class Result<T, E extends Exception> {
    * 
    * @return True if the result is of the Err variant, false otherwise.
    */
-  public boolean isError() {
+  public boolean isErr() {
     return error != null;
   }
 
@@ -47,8 +47,8 @@ public class Result<T, E extends Exception> {
    * 
    * @return The inner value of the Err variant.
    */
-  public E unwrapError() {
-    if (isError()) {
+  public E unwrapErr() {
+    if (isErr()) {
       return error;
     } else {
       throw new RuntimeException("Result is Ok");
@@ -78,7 +78,7 @@ public class Result<T, E extends Exception> {
    * @return The inner value of the Err variant.
    */
   public E expectError(String message) {
-    if (isError()) {
+    if (isErr()) {
       return error;
     } else {
       throw new RuntimeException(message);

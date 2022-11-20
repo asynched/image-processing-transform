@@ -3,7 +3,9 @@ package com.unip.pdi.factories;
 import com.unip.pdi.functional.Option;
 import com.unip.pdi.images.ITransform;
 import com.unip.pdi.images.colors.BlueFilter;
+import com.unip.pdi.images.colors.GrayFilter;
 import com.unip.pdi.images.colors.GreenFilter;
+import com.unip.pdi.images.colors.InvertFilter;
 import com.unip.pdi.images.colors.RedFilter;
 import com.unip.pdi.images.transform.HorizontalMirror;
 import com.unip.pdi.images.transform.VerticalMirror;
@@ -19,6 +21,8 @@ public class ImageTransformFactory {
         new RedFilter(),
         new GreenFilter(),
         new BlueFilter(),
+        new GrayFilter(),
+        new InvertFilter(),
         new HorizontalMirror(),
         new VerticalMirror(),
     };
@@ -60,6 +64,14 @@ public class ImageTransformFactory {
 
     if (type.equals("blue")) {
       return Option.some(new BlueFilter());
+    }
+
+    if (type.equals("gray")) {
+      return Option.some(new GrayFilter());
+    }
+
+    if (type.equals("invert")) {
+      return Option.some(new InvertFilter());
     }
 
     return Option.none();
